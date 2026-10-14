@@ -1,26 +1,93 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* Chef KnifeWorks brand tokens */
+@theme {
+  --color-carbon: #111111;
+  --color-bronze: #c6925b;
+  --color-bronze-deep: #a8743f;
+  --color-cream: #faf9f5;
+  --color-paper: #f2efe7;
+  --color-line: #e4e0d8;
+  --color-sage: #8b9a88;
+  --color-aogami: #344b60;
+  --color-ink-soft: #55524c;
+  --color-danger: #a23b2a;
+  --font-sans: "Montserrat", ui-sans-serif, system-ui, sans-serif;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-cream);
+  color: var(--color-carbon);
+  font-family: var(--font-sans);
+  font-feature-settings: "tnum" 1;
+}
+
+.eyebrow {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-bronze-deep);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 44px;
+  padding: 0 1.1rem;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: background 120ms, color 120ms, border-color 120ms, opacity 120ms;
+}
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.btn-primary {
+  background: var(--color-carbon);
+  color: var(--color-cream);
+}
+.btn-primary:hover:not(:disabled) {
+  background: var(--color-aogami);
+}
+.btn-ghost {
+  border: 1px solid var(--color-line);
+  background: white;
+  color: var(--color-carbon);
+}
+.btn-ghost:hover:not(:disabled) {
+  border-color: var(--color-carbon);
+}
+
+.field {
+  width: 100%;
+  min-height: 46px;
+  border: 1px solid var(--color-line);
+  border-radius: 6px;
+  background: white;
+  padding: 0.6rem 0.8rem;
+  font-size: 1rem;
+}
+.field:focus {
+  outline: 2px solid var(--color-aogami);
+  outline-offset: 1px;
+  border-color: transparent;
+}
+
+.card {
+  background: white;
+  border: 1px solid var(--color-line);
+  border-radius: 10px;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-aogami);
+  outline-offset: 2px;
 }
